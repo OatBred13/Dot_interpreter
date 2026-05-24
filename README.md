@@ -42,7 +42,9 @@ Enter the file's name: script.txt
 
 # Installation of the interpreter
 In the terminal, enter this command:
+
 `git clone https://github.com/OatBred13/Dot_interpreter.git`
+
 Or download through the web version of GitHub
 
 # Running the interpreter
@@ -50,6 +52,7 @@ Or download through the web version of GitHub
 You can open the interpreter in two ways. One is through any code editor, and the second one is through the Windows Terminal. To open it using the Windows Terminal, the folder in which the Dot interpreter is located must be found. Then these commands are entered into the terminal:
 
 `cd path of the folder with the Dot interpreter`
+
 `python Dot.py` or `py Dot.py`
 
 For both methods **a working Python interpreter is required**
@@ -59,16 +62,24 @@ For both methods **a working Python interpreter is required**
 ## C:\users\user_name\documents\scripts\script.txt
 
 `counter = int.(0)`
+
 ``
+
 `loop.(10000)`
+
 `counter = counter + 1`
+
 `loop.end`
+
 ``
+
 `terminal.write.(counter)`
 
 ## Console
 <.>>> dot.(runfile)
+
 Enter the file's path: C:\users\user_name\documents\scripts
+
 Enter the file's name: script.txt
 
 ## Output
