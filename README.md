@@ -48,6 +48,8 @@ You can open the interpreter in two ways. One is through any code editor, and th
 `cd path of the folder with the Dot interpreter`
 `python Dot.py` or `py Dot.py`
 
+For both methods **a working Python interpreter is required**
+
 # Example code and its execution
 
 ## C:\users\user_name\documents\scripts\script.txt
