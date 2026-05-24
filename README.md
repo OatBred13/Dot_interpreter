@@ -12,12 +12,16 @@ Dot Language Interpreter is a simple interpreter for my programming language Dot
 
 # Console mode
 <.>>> x = "Hello World!"
+
 <.>>> terminal.write.(x)
+
 Hello World!
 
 # Executing scripts
 <.>>> dot.(runfile)
+
 Enter the file's path: scripts/
+
 Enter the file's name: script.txt
 
 # Error list
