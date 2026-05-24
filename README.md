@@ -63,7 +63,7 @@ For both methods **a working Python interpreter is required**
 
 `counter = int.(0)`
 
-``
+
 
 `loop.(10000)`
 
@@ -71,7 +71,7 @@ For both methods **a working Python interpreter is required**
 
 `loop.end`
 
-``
+
 
 `terminal.write.(counter)`
 
@@ -84,6 +84,7 @@ Enter the file's name: script.txt
 
 ## Output
 10000.0
+
 Executed in 0.019416 seconds.
 
 
