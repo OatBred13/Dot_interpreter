@@ -145,6 +145,124 @@ def loop_start(repetitions, start_index):
         for i in loop_block:
             parse_and_execute(i)
 
+def else_start(start_index_else):
+    index = 0
+    i = start_index_else + 1
+    commands_if_false = []
+    try:
+        while lines[i] != "condition.end":
+            commands_if_false.append(lines[i])
+            i += 1
+
+        for _ in range(len(commands_if_false)):
+            parse_and_execute(commands_if_false[index])
+            index += 1
+    
+    except:
+        terminal_write("Dot.Syntax.Error: No proper condition given, no else statement present or no condition.end statement present. Please ensure the correctness of the given code. Err_cd: 10")
+
+def if_start(condition, start_index):
+    index = 0
+    i = start_index + 1
+    commands_if_true = []
+    try:
+        while lines[i] != "else:":
+            commands_if_true.append(lines[i])
+            i += 1
+
+        start_index_else = i
+
+        if "==" in condition:
+            value1, value2 = condition.split("==")
+            if value1 in variables:
+                value1 = variables[value1]
+            elif value2 in variables:
+                value2 = variables[value2]
+    
+            if value1 == value2:
+                for i in range(len(commands_if_true) - 1):
+                    parse_and_execute(commands_if_true[index])
+                    index += 1
+
+            else:
+                else_start(start_index_else)
+
+        elif "!=" in condition:
+            value1, value2 = condition.split("!=")
+            if value1 in variables:
+                value1 = variables[value1]
+            elif value2 in variables:
+                value2 = variables[value2]
+                
+            if value1 != value2:
+                for i in range(len(commands_if_true) - 1):
+                    parse_and_execute(commands_if_true[index])
+                    index += 1
+            
+            else:
+                else_start(start_index_else)
+
+        elif ">" in condition:
+            value1, value2 = condition.split(">")
+            if value1 in variables:
+                value1 = variables[value1]
+            elif value2 in variables:
+                value2 = variables[value2]
+
+            if value1 > value2:
+                for i in range(len(commands_if_true) - 1):
+                    parse_and_execute(commands_if_true[index])
+                    index += 1
+            
+            else:
+                else_start(start_index_else)
+
+        elif "<" in condition:
+            value1, value2 = condition.split("<")
+            if value1 in variables:
+                value1 = variables[value1]
+            elif value2 in variables:
+                value2 = variables[value2]
+                
+            if value1 < value2:
+                for i in range(len(commands_if_true) - 1):
+                    parse_and_execute(commands_if_true[index])
+                    index += 1
+            
+            else:
+                else_start(start_index_else)
+
+        elif ">=" in condition:
+            value1, value2 = condition.split(">=")
+            if value1 in variables:
+                value1 = variables[value1]
+            elif value2 in variables:
+                value2 = variables[value2]
+
+            if value1 >= value2:
+                for i in range(len(commands_if_true) - 1):
+                    parse_and_execute(commands_if_true[index])
+                    index += 1
+            else:
+                else_start(start_index_else)
+
+        elif "<=" in condition:
+            value1, value2 = condition.split("<=")
+            if value1 in variables:
+                value1 = variables[value1]
+            elif value2 in variables:
+                value2 = variables[value2]
+
+            if value1 <= value2:
+                for i in range(len(commands_if_true) - 1):
+                    parse_and_execute(commands_if_true[index])
+                    index += 1
+            else:
+                else_start(start_index_else)
+    
+    except:
+        terminal_write("Dot.Syntax.Error: No proper condition given, no else statement present or no condition.end statement present. Please ensure the correctness of the given code. Err_cd: 10")
+
 def parse_and_execute(command):
     
     if command == "loop.end":
@@ -219,7 +337,19 @@ def parse_and_execute(command):
         except:
             terminal_write(f"{sleep_time} is not an integer or float. Cannot execute the program.sleep.(argument) command.")
 
+    elif command.startswith("if."):
+        start_ixd = command.find("(") + 1
+        end_ixd = command.find("):")
+        condition = command[start_ixd:end_ixd]
+        if_start(condition, index)
+
     elif command == "dot.(runfile)":
+        pass
+
+    elif command == "pass":
+        pass
+
+    elif command == "condition.end":
         pass
     
     else:
