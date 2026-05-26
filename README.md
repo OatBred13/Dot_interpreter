@@ -1,4 +1,4 @@
-# Dot interpreter's *"test"* branh
+# Dot interpreter's *"test"* branch
 
 This branch will be dedicated to post Dot interpreter's buggy and unstable versions, for people to help or just give tips. Files on this branch (both the main Python file and this README) will be updated every day at roughly 8 pm.
 
@@ -16,7 +16,7 @@ This branch will be dedicated to post Dot interpreter's buggy and unstable versi
 
 ## Contributing
 
-Pull requests or modifications to the Dot interpreter is welcome! For major changed though, please open an issue first.
+Pull requests or modifications to the Dot interpreter are welcome! For major changed though, please open an issue first.
 
 ## License
 
